@@ -1,18 +1,35 @@
-<ion-header>
+<!-- <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>ПРОГРАМА ТЕСТУВАННЯ З ДИСЦИПЛІНИ "БОЙОВА РОБОТА"</ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <h1 text-center>ПРОГРАМА ТЕСТУВАННЯ З ДИСЦИПЛІНИ "БОЙОВА РОБОТА"</h1>
+  <!-- <h1>{{globals.role}}</h1> -->
+  <div class="row row-center">
+    <div class="col" text-center (click)="openPage('course', {icon: 'assets/imgs/test.png', course: 1})"><ion-img src="assets/imgs/test.png"></ion-img></div>
+    <div class="col" text-center (click)="openPage('course', {icon: 'assets/imgs/test.png', course: 2})"><ion-img src="assets/imgs/test.png"></ion-img></div>
+  </div>
+  <div class="row row-center">
+    <div class="col" text-center (click)="openPage('course', {icon: 'assets/imgs/test.png', course: 3})"><ion-img src="assets/imgs/test.png"></ion-img></div>
+    <div class="col" text-center (click)="openPage('course', {icon: 'assets/imgs/test.png', course: 4})"><ion-img src="assets/imgs/test.png"></ion-img></div>
+  </div>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <div class="row row-center">
+    <button class="col col-center" margin ion-button color="light" (click)="openPage('authors')">Автори</button>
+    <button class="col col-center" margin ion-button color="light" (click)="openPage('settings')">Налаштування</button>
+  </div>
+
+  <div class="row row-center">
+    <a href="https://web.telegram.org/" onclick="window.open('http://google.es’, '_blank’, 'location=yes')" class="col" text-center><ion-img src="http://via.placeholder.com/250/000000"></ion-img></a>
+    <a href="https://web.telegram.org/" target="_system" class="col" text-center><ion-img src="http://via.placeholder.com/250/000000"></ion-img></a>
+    <a href="https://web.telegram.org/" class="col" text-center><ion-img src="assets/imgs/test.png"></ion-img></a>
+    <a href="https://web.telegram.org/" target="_blank" class="col" text-center><ion-img src="http://via.placeholder.com/250/000000"></ion-img></a>
+  </div>
+
 </ion-content>

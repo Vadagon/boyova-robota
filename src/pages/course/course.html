@@ -1,0 +1,40 @@
+<!--
+  Generated template for the CoursePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{this.navParams.data.course}} курс</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+	<ion-row justify-content-center>
+		<ion-col col-6 text-center>
+			<ion-img src="{{this.navParams.data.icon}}"></ion-img>		
+		</ion-col>
+	</ion-row>
+
+	<div class="row row-center" padding>
+	    <button class="col col-center" ion-button color="light" (click)="openPage('level1')">ПИТАННЯ ПЕРШОГО РІВНЯ</button>
+	</div>
+    <div class="row row-center" padding>
+	    <button class="col col-center" ion-button color="light" (click)="openPage('level2')">ПИТАННЯ ДРУГОГО РІВНЯ</button>
+	</div>
+    <div class="row row-center" padding>
+	    <button class="col col-center" ion-button color="light" (click)="openPage('test')">ЗАЛІК</button>
+    </div>
+
+    <ion-row justify-content-center align-items-center>
+	    <a href="https://vadagon.com" class="col" padding text-center><ion-img src="http://via.placeholder.com/250/000000"></ion-img></a>
+	    <button class="col col-center" margin ion-button color="light" (click)="openPage('result')">МІЙ РЕЗУЛЬТАТ</button>
+    </ion-row>
+
+</ion-content>

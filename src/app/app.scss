@@ -14,3 +14,21 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+
+ion-img{
+    width: 100%;
+    contain: content;
+    padding: 10%;
+    background-color: rgba(0,0,0,0);
+}
+table{
+	width: 100%;
+}
+table, th, td {
+	padding: 5px;
+	font-size: 24px;
+	font-weight: bold;
+    border: 4px solid white;
+    border-collapse: collapse;
+}
