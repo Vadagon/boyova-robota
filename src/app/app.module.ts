@@ -15,6 +15,7 @@ import { AuthorsPage as authors  } from '../pages/authors/authors';
 import { SettingsPage as settings  } from '../pages/settings/settings';
 import { TestPage as test  } from '../pages/test/test';
 import { ResultPage as result  } from '../pages/result/result';
+import { DataProvider } from '../providers/data/data';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { ResultPage as result  } from '../pages/result/result';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DataProvider
   ]
 })
 export class AppModule {}
