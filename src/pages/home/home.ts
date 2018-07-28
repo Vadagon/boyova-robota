@@ -10,6 +10,7 @@ import { SettingsPage as settings  } from '../settings/settings';
 
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
+import { DataProvider } from '../../providers/data/data';
 
 @Component({
   selector: 'page-home',
@@ -19,8 +20,9 @@ import { Observable } from 'rxjs/Observable';
 export class HomePage {
 
   version: Observable<any>;
-  constructor(public navCtrl: NavController, public db: AngularFireDatabase) {
-    this.version = db.object('version').valueChanges();
+  constructor(public navCtrl: NavController, public db: AngularFireDatabase, public data: DataProvider) {
+    // this.version = db.object('/').valueChanges();
+    this.version = data.getData()
   }
 
   openPage(path, data?){

@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 /*
   Generated class for the DataProvider provider.
@@ -10,8 +10,11 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class DataProvider {
 
-  constructor(public http: HttpClient) {
+  constructor(public db: AngularFireDatabase) {
     console.log('Hello DataProvider Provider');
+  }
+  getData(){
+  	return this.db.object('/').valueChanges();
   }
 
 }
