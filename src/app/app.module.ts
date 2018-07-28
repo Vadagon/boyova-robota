@@ -17,6 +17,11 @@ import { TestPage as test  } from '../pages/test/test';
 import { ResultPage as result  } from '../pages/result/result';
 import { DataProvider } from '../providers/data/data';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { FIREBASE_CONFIG } from './firebase.credentials';
+import { AngularFireDatabase } from 'angularfire2/database';
+
 
 @NgModule({
   declarations: [
@@ -33,6 +38,9 @@ import { DataProvider } from '../providers/data/data';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireDatabaseModule, // for database
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -49,6 +57,7 @@ import { DataProvider } from '../providers/data/data';
   providers: [
     StatusBar,
     SplashScreen,
+    AngularFireDatabase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DataProvider
   ]

@@ -8,14 +8,19 @@ import { Level2Page as level2  } from '../level2/level2';
 import { AuthorsPage as authors  } from '../authors/authors';
 import { SettingsPage as settings  } from '../settings/settings';
 
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
 })
+
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  version: Observable<any>;
+  constructor(public navCtrl: NavController, public db: AngularFireDatabase) {
+    this.version = db.object('version').valueChanges();
   }
 
   openPage(path, data?){
