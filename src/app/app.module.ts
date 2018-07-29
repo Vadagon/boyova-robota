@@ -21,6 +21,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FIREBASE_CONFIG } from './firebase.credentials';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 @NgModule({
@@ -40,7 +41,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireDatabaseModule, // for database
-
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

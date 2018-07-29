@@ -23,18 +23,18 @@
 	</ion-row>
 
 	<div class="row row-center" padding>
-	    <button class="col col-center" ion-button color="light" (click)="openPage('level1')">ПИТАННЯ ПЕРШОГО РІВНЯ</button>
+	    <button class="col col-center" ion-button color="light" (click)="data.openPage('level1')">ПИТАННЯ ПЕРШОГО РІВНЯ</button>
 	</div>
     <div class="row row-center" padding>
-	    <button class="col col-center" ion-button color="light" (click)="openPage('level2')">ПИТАННЯ ДРУГОГО РІВНЯ</button>
+	    <button class="col col-center" ion-button color="light" (click)="data.openPage('level2')">ПИТАННЯ ДРУГОГО РІВНЯ</button>
 	</div>
     <div class="row row-center" padding>
-	    <button class="col col-center" ion-button color="light" (click)="openPage('test')">ЗАЛІК</button>
+	    <button class="col col-center" ion-button color="light" (click)="data.openPage('test')">ЗАЛІК</button>
     </div>
 
     <ion-row justify-content-center align-items-center>
 	    <a href="https://vadagon.com" class="col" padding text-center><ion-img src="assets/imgs/academic.png"></ion-img></a>
-	    <button class="col col-center" margin ion-button color="light" (click)="openPage('result')">МІЙ РЕЗУЛЬТАТ</button>
+	    <button class="col col-center" margin ion-button color="light" (click)="data.openPage('result')">МІЙ РЕЗУЛЬТАТ</button>
     </ion-row>
 
 </ion-content>

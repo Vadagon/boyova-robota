@@ -3,7 +3,17 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
+import { HomePage as home  } from '../pages/home/home';
+import { CoursePage as course  } from '../pages/course/course';
+import { Level1Page as level1  } from '../pages/level1/level1';
+import { Level2Page as level2  } from '../pages/level2/level2';
+import { AuthorsPage as authors  } from '../pages/authors/authors';
+import { SettingsPage as settings  } from '../pages/settings/settings';
+import { TestPage as test  } from '../pages/test/test';
+import { ResultPage as result  } from '../pages/result/result';
+
+
+import { DataProvider } from '../providers/data/data';
 
 @Component({
   templateUrl: 'app.html'
@@ -11,18 +21,32 @@ import { HomePage } from '../pages/home/home';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = home;
 
-  pages: Array<{title: string, component: any}>;
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public data: DataProvider) {
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+    data.currentPage.subscribe((e)=>{
+      if(!e) e = ['home']
+      this.openPage(...e)
+    })
+
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Home', component: HomePage }
-    ];
+  }
 
+  openPage(path, data?){
+    let pathes = {
+      home: home,
+      course: course,
+      level1: level1,
+      level2: level2,
+      authors: authors,
+      settings: settings,
+      result: result,
+      test: test
+    };
+    console.log(this.nav)
+    this.nav.push(pathes[path], data); 
   }
 
   initializeApp() {
