@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavParams } from 'ionic-angular';
 
 
 import { DataProvider } from '../../providers/data/data';
@@ -12,7 +12,7 @@ import { DataProvider } from '../../providers/data/data';
 })
 export class CoursePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public data: DataProvider) {
+  constructor(public navParams: NavParams, public data: DataProvider) {
   }
 
 }

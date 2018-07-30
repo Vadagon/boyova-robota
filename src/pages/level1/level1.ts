@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavParams } from 'ionic-angular';
 
 import { DataProvider } from '../../providers/data/data';
 
@@ -12,26 +12,9 @@ export class Level1Page {
   stored:any;
   genQuests:any;
   next:any;
-  constructor(public data: DataProvider) {
+  constructor(public data: DataProvider, public navParams: NavParams) {
     this.num = 0;
-    this.stored = [
-      {
-        question: 'Відстань між гарматами на вогневій позиції призначається не ближче ... метрів. Відпоавідь = 25 ',
-        answers: ['25', '35', '4asdas5', '15']
-      },
-      {
-        question: '1Відстань між гарматами на вогневій позиції призначається не ближче ... метрів. Відпоавідь = 35',
-        answers: ['35', '15', '45', '65']
-      },
-      {
-        question: '1Відстань між гарматами на вогневій позиції призначається не ближче ... метрів. Відпоавідь = 15',
-        answers: ['15', '35', '4asd5', '115']
-      },
-      {
-        question: '1Відстань між гарматами на вогневій позиції призначається не ближче ... метрів. Відпоавідь = 25a',
-        answers: ['25a', '35', '4a5', '15']
-      }
-    ]
+    this.stored = data.data['course'+navParams.data.course].level1;
     this.stored = this.stored.map((el, id)=>{
       el.inId = id
       return el;

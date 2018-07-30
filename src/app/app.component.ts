@@ -22,6 +22,16 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = home;
+  pathes: any = {
+    home: home,
+    course: course,
+    level1: level1,
+    level2: level2,
+    authors: authors,
+    settings: settings,
+    result: result,
+    test: test,
+  };
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public data: DataProvider) {
 
@@ -35,18 +45,7 @@ export class MyApp {
   }
 
   openPage(path, data?){
-    let pathes = {
-      home: home,
-      course: course,
-      level1: level1,
-      level2: level2,
-      authors: authors,
-      settings: settings,
-      result: result,
-      test: test
-    };
-    console.log(this.nav)
-    this.nav.push(pathes[path], data); 
+    this.nav.push(this.pathes[path], data); 
   }
 
   initializeApp() {
