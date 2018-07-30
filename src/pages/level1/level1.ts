@@ -45,7 +45,9 @@ export class Level1Page {
       if(this.redirecting) return;
       if(this.stored[this.genQuests[this.num].inId].answers[0] == x){
         this.genQuests[this.num].answers[id].color = "secondary";
+        this.genQuests[this.num].answers[id].answered = !0;
       }else{
+        this.genQuests[this.num].answers[id].answered = !1;
         this.genQuests[this.num].answers.forEach((el, iid)=>{
           if(el.text == this.stored[this.genQuests[this.num].inId].answers[0])
             this.genQuests[this.num].answers[iid].color = "secondary";
@@ -54,7 +56,7 @@ export class Level1Page {
       }
       this.redirecting = !0;
       setTimeout(() => {
-        this.stored.length > this.num + 1 ? this.num++ : data.openPage('result');
+        this.stored.length > this.num + 1 ? this.num++ : data.openPage('result', {data: this.genQuests});
         this.redirecting = !1;
       }, 1400);
 

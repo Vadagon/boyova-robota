@@ -22,7 +22,6 @@ export class DataProvider {
   	constructor(public db: AngularFireDatabase, private storage: Storage, public loadingCtrl: LoadingController) {
   		storage.get('data').then((val) => {
   			if(val){
-  				console.log(val)
   				this.data = val;
   			}else{
 				var loading = this.loadingCtrl.create({
@@ -61,8 +60,11 @@ export class DataProvider {
 		this.currentPage.next(arguments);
 	}
 
-
-	presentLoadingDefault() {
+	randomBetween(min,max){
+		min = parseInt(min)
+		max = parseInt(max)
+	    return Math.floor(Math.random()*(max-min+1)+min);
 	}
+
 
 }

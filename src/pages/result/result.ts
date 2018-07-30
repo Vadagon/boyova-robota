@@ -9,7 +9,11 @@ import { DataProvider } from '../../providers/data/data';
 })
 export class ResultPage {
 
-  constructor(public data: DataProvider) {
+  constructor(public data: DataProvider, public navParams: NavParams, public navCtrl: NavController) {
+  	console.log(navParams.data)
+  }
+  ionViewCanLeave(): boolean{
+	this.navCtrl.popTo(this.navCtrl.getByIndex(1), {animate:false, duration: 0});
   }
 
 }

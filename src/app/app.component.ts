@@ -36,7 +36,7 @@ export class MyApp {
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public data: DataProvider) {
 
     data.currentPage.subscribe((e)=>{
-      if(!e) e = ['home']
+      if(!!e && e.constructor !== Array && !e.length) e = ['home'];
       this.openPage(...e)
     })
 

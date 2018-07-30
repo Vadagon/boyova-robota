@@ -14,5 +14,8 @@
 
 
 <ion-content padding>
-	В розробці...
+	В розробці
+	<div ng-if="navParams.data">
+		{{ navParams.data.data | json }}
+	</div>
 </ion-content>

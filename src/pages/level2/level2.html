@@ -6,40 +6,29 @@
 <ion-content padding>
   <h1 text-center margin>ПИТАННЯ №1</h1>
   <h2 text-center>
-		Відстань між
-		гарматами на
-		вогневій позиції
-		призначається не
-		ближче ... метрів.
+    {{task[num].question}}
 	</h2>
   <p></p>
   <div>
     <table>
-      <tr>
-        <th colspan="2"> Визначити β віз </th>
+<!--       <tr>
+        <th colspan="2">{{task[num].question}}</th>
       </tr>
-      <tr>
-        <td> α ОН = </td>
-        <td> 00 - 52 </td>
-      </tr>
-      <tr>
-        <td> α бус-віз = </td>
-        <td> 00 - 52 </td>
-      </tr>
-      <tr>
-        <td> β віз-бус = </td>
-        <td> 00 - 52 </td>
+ -->      
+      <tr *ngFor="let x of task[num].options">
+        <td>{{x.name}}</td>
+        <td>{{x.value}}</td>
       </tr>
     </table>
   </div>
   <ion-row justify-content-center align-items-center margin>
     <ion-col col-9>
       <ion-item>
-        <ion-input placeholder="Text Input"></ion-input>
+        <ion-input placeholder="Text Input" [(ngModel)]="answer"></ion-input>
       </ion-item>
     </ion-col>
     <ion-col col-3 text-center justify-content-center align-items-center>
-      <button ion-button color="secondary">ОК</button>
+      <button ion-button color="secondary" (click)="next()">ОК</button>
     </ion-col>
   </ion-row>
 </ion-content>
