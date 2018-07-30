@@ -12,6 +12,7 @@ export class Level1Page {
   stored:any;
   genQuests:any;
   next:any;
+  redirecting:boolean = false;
   constructor(public data: DataProvider, public navParams: NavParams) {
     this.num = 0;
     this.stored = data.data['course'+navParams.data.course].level1;
@@ -41,6 +42,7 @@ export class Level1Page {
       return el;
     })
     this.next = (x, id) => {
+      if(this.redirecting) return;
       if(this.stored[this.genQuests[this.num].inId].answers[0] == x){
         this.genQuests[this.num].answers[id].color = "secondary";
       }else{
@@ -50,12 +52,13 @@ export class Level1Page {
         })
         this.genQuests[this.num].answers[id].color = "danger";
       }
-      setTimeout(() => { 
+      this.redirecting = !0;
+      setTimeout(() => {
         this.stored.length > this.num + 1 ? this.num++ : data.openPage('result');
-      }, 2000);
+        this.redirecting = !1;
+      }, 1400);
 
     }
-    console.log(this.genQuests)
   }
   
 }
