@@ -9,4 +9,5 @@ cd ~/../home/chrx/Android/build-tools/26.0.2
 
 
 
+
 password: qweqwe
