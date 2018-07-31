@@ -1,9 +1,9 @@
 sudo su
 cd ~/../home/chrx/Documents/robota/
-ionic cordova build android --release
+ionic cordova build android --prod --release
 jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.jks ~/../home/chrx/Documents/robota/platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk my-alias
 cd ~/../home/chrx/Android/build-tools/26.0.2
-./zipalign -v 4 ~/../home/chrx/Documents/robota/platforms/android/app/build/outputs/apk/debug/app-debug.apk ~/../home/chrx/Downloads/apk.apk
+./zipalign -v 4 ~/../home/chrx/Documents/robota/platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk ~/../home/chrx/Downloads/apk.apk
 
 ./apksigner verify ~/../home/chrx/Downloads/apk.apk
 
