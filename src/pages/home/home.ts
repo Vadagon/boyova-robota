@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
 import { DataProvider } from '../../providers/data/data';
 
 @Component({
@@ -9,7 +8,7 @@ import { DataProvider } from '../../providers/data/data';
 
 export class HomePage {
 
-  constructor(public db: AngularFireDatabase, public data: DataProvider) {
+  constructor(public data: DataProvider) {
   }
 
 }
