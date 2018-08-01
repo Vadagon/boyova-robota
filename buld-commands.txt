@@ -3,7 +3,7 @@ sudo su
 
 cd /home/chrx/Documents/boyova-robota
 
-ionic cordova build android --prod --release
+ionic cordova build android --release --prod
 
 jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.jks /home/chrx/Documents/boyova-robota/platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk my-alias
 
