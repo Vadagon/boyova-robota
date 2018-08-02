@@ -15,6 +15,7 @@ export class TestPage {
   type:any = 1;
   num:number = 0;
   answer: any = '';
+  course: any;
   quests: any = {level1:[], level2: []};
   constructor(public data: DataProvider, public navParams: NavParams) {
 
@@ -37,15 +38,14 @@ export class TestPage {
     this.quests.level1 = genQuests(this.quests.stored)
 
     this.quests.level2 = genProblems(shuffleArray(this.course.level2).slice(0, this.course.test.level2.count))
-    console.log(this.quests)
   }
 
   next(x?, id?){
     if(this.type == 1){  
       if(this.quests.stored[this.quests.level1[this.num].inId].answers[0] == x){
-        this.quests.level1[this.num].answers[id].answered = !0;
+        this.quests.level1[this.num].answered = !0;
       }else{
-        this.quests.level1[this.num].answers[id].answered = !1;
+        this.quests.level1[this.num].answered = !1;
       }
       this.num++
       if(this.quests.level1.length < this.num + 1) this.type = 2;
@@ -54,9 +54,8 @@ export class TestPage {
       this.answer = '';
       this.quests.level2[this.num-this.quests.level1.length].answered = (answer==this.quests.level2[this.num-this.quests.level1.length].answer);
 
-      (this.quests.level1.length + this.quests.level2.length) > this.num + 1 ? this.num++ : this.data.openPage('result', {course: navParams.data.course, level: 3, data: this.quests})
+      (this.quests.level1.length + this.quests.level2.length) > this.num + 1 ? this.num++ : this.data.openPage('result', {course: this.navParams.data.course, level: 3, data: this.quests})
     }
-    console.log(this.num-this.quests.level1.length)
   }
 
 }

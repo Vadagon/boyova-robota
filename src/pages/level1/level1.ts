@@ -22,9 +22,9 @@ export class Level1Page {
     if(this.redirecting) return;
     if(this.stored[this.quests[this.num].inId].answers[0] == x){
       this.quests[this.num].answers[id].color = "secondary";
-      this.quests[this.num].answers[id].answered = !0;
+      this.quests[this.num].answered = !0;
     }else{
-      this.quests[this.num].answers[id].answered = !1;
+      this.quests[this.num].answered = !1;
       this.quests[this.num].answers.forEach((el, iid)=>{
         if(el.text == this.stored[this.quests[this.num].inId].answers[0])
           this.quests[this.num].answers[iid].color = "secondary";
@@ -33,7 +33,7 @@ export class Level1Page {
     }
     this.redirecting = !0;
     setTimeout(() => {
-      this.stored.length > this.num + 1 ? this.num++ : this.data.openPage('result', {course: navParams.data.course, level: 1, data: this.quests});
+      this.stored.length > this.num + 1 ? this.num++ : this.data.openPage('result', {course: this.navParams.data.course, level: 1, data: this.quests});
       this.redirecting = !1;
     }, 1400);
   }

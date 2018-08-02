@@ -20,7 +20,7 @@ export class Level2Page {
     this.answer = '';
     this.task[this.num].answered = (answer==this.task[this.num].answer);
 
-    this.task.length > this.num + 1 ? this.num++ : this.data.openPage('result', {course: navParams.data.course, level: 2, data: this.task});
+    this.task.length > this.num + 1 ? this.num++ : this.data.openPage('result', {course: this.navParams.data.course, level: 2, data: this.task});
   }
 
 }

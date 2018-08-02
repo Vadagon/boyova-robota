@@ -10,7 +10,10 @@ import { DataProvider } from '../../providers/data/data';
 export class ResultPage {
 
   constructor(public data: DataProvider, public navParams: NavParams, public navCtrl: NavController) {
-  	console.log(navParams.data)
+  	if(this.navParams.data.level == 3){
+  		this.navParams.data.data = Object.assign(this.navParams.data.data.level2, this.navParams.data.data.level1)
+  	}
+  	console.log(this.navParams.data)
   }
   ionViewCanLeave(){
 	this.navCtrl.popTo(this.navCtrl.getByIndex(1), {animate:false, duration: 0});

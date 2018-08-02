@@ -14,8 +14,15 @@
 
 
 <ion-content padding>
-	В розробці
-	<div ng-if="navParams.data">
-		{{ navParams.data.data | json }}
+  <div *ngIf="!navParams.data.data">
+  	В розробці
+  </div>
+	<div *ngIf="navParams.data.data">
+    <div *ngFor="let x of navParams.data.data">
+      {{x.question}}
+      <br>
+      Ви відповіли: <i>{{x.answered}}</i>
+      <hr>
+    </div>
 	</div>
 </ion-content>
