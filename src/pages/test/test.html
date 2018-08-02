@@ -8,42 +8,39 @@
 
 
 <ion-content padding>
-  <h1 text-center margin>ПИТАННЯ №1</h1>
-  <h2 text-center>
-		Відстань між
-		гарматами на
-		вогневій позиції
-		призначається не
-		ближче ... метрів.
-	</h2>
-  <p></p>
-  <div>
+  <h1 text-center>ПИТАННЯ №{{num+1}}</h1>
+  <br>
+  <h3 text-center>
+    {{quests['level'+type][type==1?num:num-quests.level1.length].question}}
+  </h3>
+  <br>
+  <div *ngIf="type==2">
     <table>
-      <tr>
-        <th colspan="2"> Визначити β віз </th>
-      </tr>
-      <tr>
-        <td> α ОН = </td>
-        <td> 00 - 52 </td>
-      </tr>
-      <tr>
-        <td> α бус-віз = </td>
-        <td> 00 - 52 </td>
-      </tr>
-      <tr>
-        <td> β віз-бус = </td>
-        <td> 00 - 52 </td>
+      <tr *ngFor="let x of quests.level2[num-quests.level1.length].options">
+        <td>{{x.name}}</td>
+        <td>{{x.value}}</td>
       </tr>
     </table>
   </div>
-  <ion-row justify-content-center align-items-center margin>
-    <ion-col col-9>
-      <ion-item>
-        <ion-input placeholder="Text Input"></ion-input>
-      </ion-item>
-    </ion-col>
-    <ion-col col-3 text-center justify-content-center align-items-center>
-      <button ion-button color="secondary">ОК</button>
+</ion-content>
+
+
+
+<ion-footer no-shadow>
+
+  <ion-row *ngIf="type==1" justify-content-center>
+    <ion-col col text-center *ngFor="let x of quests.level1[num].answers; let i = index">
+      <button class="col col-center" ion-button block full (click)="next(x.text, i)" [color]="x.color">{{x.text}}</button>
     </ion-col>
   </ion-row>
-</ion-content>
+
+  <ion-row *ngIf="type==2" justify-content-center align-items-center padding>
+    <ion-item col-9 style="padding-left: 0;">
+      <ion-input placeholder="Відповідь" [(ngModel)]="answer"></ion-input>
+    </ion-item>
+    <ion-col col-3 style="padding-left: 16px;">
+      <button ion-button block color="secondary" (click)="next()">ОК</button>
+    </ion-col>
+  </ion-row>
+
+</ion-footer>

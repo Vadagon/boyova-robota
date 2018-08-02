@@ -4,31 +4,30 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <h1 text-center margin>ПИТАННЯ №1</h1>
-  <h2 text-center>
+  <h1 text-center margin>ПИТАННЯ №{{num+1}}</h1>
+  <h3 text-center>
     {{task[num].question}}
-	</h2>
-  <p></p>
+	</h3>
+  <br>
   <div>
     <table>
-<!--       <tr>
-        <th colspan="2">{{task[num].question}}</th>
-      </tr>
- -->      
+
       <tr *ngFor="let x of task[num].options">
         <td>{{x.name}}</td>
         <td>{{x.value}}</td>
       </tr>
+
     </table>
   </div>
-  <ion-row justify-content-center align-items-center margin>
-    <ion-col col-9>
-      <ion-item>
-        <ion-input placeholder="Text Input" [(ngModel)]="answer"></ion-input>
-      </ion-item>
-    </ion-col>
-    <ion-col col-3 text-center justify-content-center align-items-center>
-      <button ion-button color="secondary" (click)="next()">ОК</button>
+</ion-content>
+
+<ion-footer no-shadow>
+  <ion-row justify-content-center align-items-center padding>
+    <ion-item col-9 style="padding-left: 0;">
+      <ion-input placeholder="Відповідь" [(ngModel)]="answer"></ion-input>
+    </ion-item>
+    <ion-col col-3 style="padding-left: 16px;">
+      <button ion-button block color="secondary" (click)="next()">ОК</button>
     </ion-col>
   </ion-row>
-</ion-content>
+</ion-footer>

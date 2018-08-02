@@ -15,12 +15,17 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-
+ion-img.img-loaded img{
+    margin: auto;
+}
 ion-img{
     width: 100%;
     contain: content;
     padding: 10%;
     background-color: rgba(0,0,0,0);
+}
+.bottomLinks ion-img{
+    padding: 2%;
 }
 table{
 	width: 100%;

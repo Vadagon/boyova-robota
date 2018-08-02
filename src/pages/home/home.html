@@ -11,24 +11,25 @@
   <h1 text-center>ПРОГРАМА ТЕСТУВАННЯ З ДИСЦИПЛІНИ "БОЙОВА РОБОТА"</h1>
   <!-- <h1>{{globals.role}}</h1> -->
   <div class="row row-center">
-    <div class="col" text-center (click)="data.openPage('course', {icon: 'assets/imgs/course1.png', course: 1})"><ion-img src="assets/imgs/course1.png"></ion-img></div>
-    <div class="col" text-center (click)="data.openPage('course', {icon: 'assets/imgs/course2.png', course: 2})"><ion-img src="assets/imgs/course2.png"></ion-img></div>
+    <div class="col" (click)="data.openPage('course', {icon: 'assets/img/course1.png', course: 1})"><ion-img src="assets/img/course1.png"></ion-img></div>
+    <div class="col" (click)="data.openPage('course', {icon: 'assets/img/course2.png', course: 2})"><ion-img src="assets/img/course2.png"></ion-img></div>
   </div>
   <div class="row row-center">
-    <div class="col" text-center (click)="data.openPage('course', {icon: 'assets/imgs/course3.png', course: 3})"><ion-img src="assets/imgs/course3.png"></ion-img></div>
-    <div class="col" text-center (click)="data.openPage('course', {icon: 'assets/imgs/course4.png', course: 4})"><ion-img src="assets/imgs/course4.png"></ion-img></div>
+    <div class="col" (click)="data.openPage('course', {icon: 'assets/img/course3.png', course: 3})"><ion-img src="assets/img/course3.png"></ion-img></div>
+    <div class="col" (click)="data.openPage('course', {icon: 'assets/img/course4.png', course: 4})"><ion-img src="assets/img/course4.png"></ion-img></div>
+  </div>
+  
+  <br>
+  
+  <div class="row row-center bottomLinks">
+    <a class="col" (click)="data.openPage('authors')"><ion-img src="assets/img/authors.png"></ion-img></a>
+    <a class="col" (click)="data.openPage('settings')"><ion-img src="assets/img/settings.png"></ion-img></a>
+  </div>
+  <div class="row row-center bottomLinks">
+    <a href="{{data.data.book}}" target="_system" class="col"><ion-img src="assets/img/book.png"></ion-img></a>
+    <a href="{{data.data.film}}" target="_system" class="col"><ion-img src="assets/img/film.png"></ion-img></a>
   </div>
 
-  <div class="row row-center">
-    <button class="col col-center" margin ion-button color="light" (click)="data.openPage('authors')">Автори</button>
-    <button class="col col-center" margin ion-button color="light" (click)="data.openPage('settings')">Налаштування</button>
-  </div>
 
-  <div class="row row-center">
-    <a href="https://web.telegram.org/" onclick="window.open('http://google.es’, '_blank’, 'location=yes')" class="col" text-center><ion-img src="assets/imgs/shaman.png"></ion-img></a>
-    <a href="https://web.telegram.org/" target="_system" class="col" text-center><ion-img src="assets/imgs/left.png"></ion-img></a>
-    <a href="https://web.telegram.org/" class="col" text-center><ion-img src="assets/imgs/molfar.png"></ion-img></a>
-    <a href="https://web.telegram.org/" target="_blank" class="col" text-center><ion-img src="assets/imgs/academic.png"></ion-img></a>
-  </div>
 
 </ion-content>

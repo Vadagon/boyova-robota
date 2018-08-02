@@ -23,6 +23,7 @@ export class DataProvider {
   		storage.get('data').then((val) => {
   			if(val){
   				this.data = val;
+  				console.log(this.data)
   			}else{
 				var loading = this.loadingCtrl.create({
 					content: 'Обовязкова перша підгрузка питань з бази данних...'
@@ -60,11 +61,21 @@ export class DataProvider {
 		this.currentPage.next(arguments);
 	}
 
-	randomBetween(min,max){
-		min = parseInt(min)
-		max = parseInt(max)
-	    return Math.floor(Math.random()*(max-min+1)+min);
-	}
 
 
+
+}
+
+export function shuffleArray(array) {
+  var array = JSON.parse(JSON.stringify(array));
+  for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+export function randomBetween(min,max){
+	min = parseInt(min)
+	max = parseInt(max)
+    return Math.floor(Math.random()*(max-min+1)+min);
 }

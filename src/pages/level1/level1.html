@@ -8,23 +8,17 @@
 
 
 <ion-content padding>
-	<h1 text-center margin>ПИТАННЯ №{{genQuests[num].id}}</h1>
-	<h2 text-center>
-		{{genQuests[num].question}}
-	</h2>
-	<p></p>
+	<h1 text-center>ПИТАННЯ №{{num+1}}</h1>
+	<br>
+	<h3 text-center>
+		{{quests[num].question}}
+	</h3>
+	<br>
+</ion-content>
+<ion-footer no-shadow>
 	<ion-row justify-content-center>
-		<!-- <ion-col col-6 text-center>
-			<button class="col col-center" ion-button color="secondary">25</button>
-		</ion-col>
-		<ion-col col-6 text-center>
-			<button class="col col-center" ion-button color="danger">35</button>
-		</ion-col>
-		<ion-col col-6 text-center>
-			<button class="col col-center" ion-button>15</button>
-		</ion-col> -->
-		<ion-col col-6 text-center *ngFor="let x of genQuests[num].answers; let i = index">
-			<button class="col col-center" ion-button (click)="next(x.text, i)" [color]="x.color">{{x.text}}</button>
+		<ion-col col text-center *ngFor="let x of quests[num].answers; let i = index">
+			<button class="col col-center" ion-button block full (click)="next(x.text, i)" [color]="x.color">{{x.text}}</button>
 		</ion-col>
 	</ion-row>
-</ion-content>
+</ion-footer>
