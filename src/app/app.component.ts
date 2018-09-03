@@ -45,7 +45,7 @@ export class MyApp {
   }
 
   openPage(path, data?){
-    this.nav.push(this.pathes[path], data); 
+    this.nav.push(this.pathes[path], data, {animation: 'ios-transition'});
   }
 
   initializeApp() {

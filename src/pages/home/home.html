@@ -8,28 +8,29 @@
 </ion-header> -->
 
 <ion-content padding>
-  <h1 text-center>ПРОГРАМА ТЕСТУВАННЯ З ДИСЦИПЛІНИ "БОЙОВА РОБОТА"</h1>
-  <!-- <h1>{{globals.role}}</h1> -->
-  <div class="row row-center">
-    <div class="col" (click)="data.openPage('course', {icon: 'assets/img/course1.png', course: 1})"><ion-img src="assets/img/course1.png"></ion-img></div>
-    <div class="col" (click)="data.openPage('course', {icon: 'assets/img/course2.png', course: 2})"><ion-img src="assets/img/course2.png"></ion-img></div>
-  </div>
-  <div class="row row-center">
-    <div class="col" (click)="data.openPage('course', {icon: 'assets/img/course3.png', course: 3})"><ion-img src="assets/img/course3.png"></ion-img></div>
-    <div class="col" (click)="data.openPage('course', {icon: 'assets/img/course4.png', course: 4})"><ion-img src="assets/img/course4.png"></ion-img></div>
-  </div>
-  
-  <br>
-  
-  <div class="row row-center bottomLinks">
-    <a class="col" (click)="data.openPage('authors')"><ion-img src="assets/img/authors.png"></ion-img></a>
-    <a class="col" (click)="data.openPage('settings')"><ion-img src="assets/img/settings.png"></ion-img></a>
-  </div>
-  <div class="row row-center bottomLinks">
-    <a href="{{data.data.book}}" target="_system" class="col"><ion-img src="assets/img/book.png"></ion-img></a>
-    <a href="{{data.data.film}}" target="_system" class="col"><ion-img src="assets/img/film.png"></ion-img></a>
+  <h1 text-center>ВОГНЕВИК</h1>
+
+  <!-- <br><br><br> -->
+
+  <div style="display:flex;align-items:center; height: calc(100% - 167px);">
+    <div class="row row-center">
+      <div class="col" margin-bottom col-6 (click)="data.openPage('course', {icon: 'assets/img/course1.png', course: 1})"><ion-img src="assets/img/course1.png"></ion-img></div>
+      <div class="col" margin-bottom col-6 (click)="data.openPage('course', {icon: 'assets/img/course2.png', course: 2})"><ion-img src="assets/img/course2.png"></ion-img></div>
+      <div class="col" margin-bottom col-6 (click)="data.openPage('course', {icon: 'assets/img/course3.png', course: 3})"><ion-img src="assets/img/course3.png"></ion-img></div>
+      <div class="col" margin-bottom col-6 (click)="data.openPage('course', {icon: 'assets/img/course4.png', course: 4})"><ion-img src="assets/img/course4.png"></ion-img></div>
+    </div>
   </div>
 
+  <ion-footer no-shadow>
+    <div class="row row-center bottomLinks">
+      <a class="col" (click)="data.openPage('authors')"><ion-img src="assets/img/authors.png"></ion-img></a>
+      <a class="col" (click)="data.openPage('settings')"><ion-img src="assets/img/settings.png"></ion-img></a>
+    </div>
+    <div class="row row-center bottomLinks">
+      <a href="{{data.data.book}}" target="_system" class="col"><ion-img src="assets/img/book.png"></ion-img></a>
+      <a href="{{data.data.film}}" target="_system" class="col"><ion-img src="assets/img/film.png"></ion-img></a>
+    </div>
+  </ion-footer>
 
 
 </ion-content>

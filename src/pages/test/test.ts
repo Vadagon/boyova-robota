@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavParams } from 'ionic-angular';
 
-import { DataProvider, shuffleArray, randomBetween } from '../../providers/data/data';
+import { DataProvider, shuffleArray } from '../../providers/data/data';
 import { prepQuests, genQuests } from '../level1/level1';
 import { genProblems } from '../level2/level2';
 

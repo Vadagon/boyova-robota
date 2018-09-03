@@ -15,26 +15,25 @@
 
 
 <ion-content padding>
-
+  
+  <br>
 	<ion-row justify-content-center>
 		<ion-col col-6 text-center>
 			<ion-img src="{{this.navParams.data.icon}}"></ion-img>		
 		</ion-col>
 	</ion-row>
+  <br>
 
 	<div class="row row-center" padding>
-	    <button class="col col-center" ion-button color="light" (click)="data.openPage('level1', {course: this.navParams.data.course})">ПИТАННЯ ПЕРШОГО РІВНЯ</button>
-	</div>
-    <div class="row row-center" padding>
-	    <button class="col col-center" ion-button color="light" (click)="data.openPage('level2', {course: this.navParams.data.course})">ПИТАННЯ ДРУГОГО РІВНЯ</button>
-	</div>
-    <div class="row row-center" padding>
-	    <button class="col col-center" ion-button color="light" (click)="data.openPage('test', {course: this.navParams.data.course})" [disabled]="!1">ЗАЛІК</button>
-    </div>
-
-    <ion-row justify-content-center align-items-center>
-	    <a href="https://vadagon.com" class="col" padding text-center><ion-img src="assets/imgs/academic.png"></ion-img></a>
-	    <button class="col col-center" margin ion-button color="light" (click)="data.openPage('result')">МІЙ РЕЗУЛЬТАТ</button>
-    </ion-row>
+    <button class="col" col-12 margin-bottom ion-button color="light" (click)="data.openPage('level1', {course: this.navParams.data.course})">ПИТАННЯ ПЕРШОГО РІВНЯ</button>
+    <button class="col" col-12 margin-bottom ion-button color="light" (click)="data.openPage('level2', {course: this.navParams.data.course})">ПИТАННЯ ДРУГОГО РІВНЯ</button>
+    <button class="col" col-12 margin-bottom ion-button color="light" (click)="data.openPage('test', {course: this.navParams.data.course})" [disabled]="!1">ЗАЛІК</button>
+  </div>
 
 </ion-content>
+
+<ion-footer no-shadow>
+  <ion-row justify-content-center align-items-center>
+    <button class="col col-center" margin ion-button color="light" (click)="data.openPage('result')">МІЙ РЕЗУЛЬТАТ</button>
+  </ion-row>
+</ion-footer>

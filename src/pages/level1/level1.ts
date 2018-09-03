@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavParams } from 'ionic-angular';
 
-import { DataProvider, shuffleArray, randomBetween } from '../../providers/data/data';
+import { DataProvider, shuffleArray } from '../../providers/data/data';
 
 @Component({
   selector: 'page-level1',

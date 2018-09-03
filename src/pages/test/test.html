@@ -29,7 +29,7 @@
 <ion-footer no-shadow>
 
   <ion-row *ngIf="type==1" justify-content-center>
-    <ion-col col text-center *ngFor="let x of quests.level1[num].answers; let i = index">
+    <ion-col col col-12 text-center *ngFor="let x of quests.level1[num].answers; let i = index">
       <button class="col col-center" ion-button block full (click)="next(x.text, i)" [color]="x.color">{{x.text}}</button>
     </ion-col>
   </ion-row>

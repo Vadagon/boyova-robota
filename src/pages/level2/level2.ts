@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavParams } from 'ionic-angular';
 
-import { DataProvider, shuffleArray, randomBetween } from '../../providers/data/data';
+import { DataProvider, randomBetween } from '../../providers/data/data';
 
 @Component({
   selector: 'page-level2',
@@ -20,7 +20,10 @@ export class Level2Page {
     this.answer = '';
     this.task[this.num].answered = (answer==this.task[this.num].answer);
 
-    this.task.length > this.num + 1 ? this.num++ : this.data.openPage('result', {course: this.navParams.data.course, level: 2, data: this.task});
+    this.data.showAnswer('Вірна відповідь: <u>'+this.task[this.num].answer+'</u>')
+    setTimeout(()=>{
+      this.task.length > this.num + 1 ? this.num++ : this.data.openPage('result', {course: this.navParams.data.course, level: 2, data: this.task});
+    }, 2000)
   }
 
 }
@@ -28,14 +31,15 @@ export class Level2Page {
 export function genProblems(e){
   	return JSON.parse(JSON.stringify(e)).map((el)=>{
   		el.options = el.options.map((ell)=>{
-  			ell.value = randomBetween(ell.value[0], ell.value[1])  
+  			ell.value = Math.round(randomBetween(ell.value[0], ell.value[1]))
   			return ell;
   		})
+      console.log(el)
   		el.answer = el.answer.replace(/\B\$\S/gi, (ell)=>{
   			ell = el.options[parseInt(ell.replace('$', ''))].value;
   			return ell;
   		})
-  		el.answer = eval(el.answer)
+  		el.answer = Math.round(eval(el.answer));
   		el.answered = !1;
   		return el;
   	})

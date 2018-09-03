@@ -29,7 +29,7 @@ export class DataProvider {
 					content: 'Обовязкова перша підгрузка питань з бази данних...'
 				});
 				loading.present();
-				this.db.object('/').valueChanges().take(1).subscribe(data => {
+				this.db.object('/').valueChanges().subscribe(data => {
 					this.data = data;
 					storage.set('data', data);
 					setTimeout(()=>{
@@ -59,6 +59,16 @@ export class DataProvider {
 
 	openPage(path, data?){
 		this.currentPage.next(arguments);
+	}
+
+	showAnswer(e){
+		let loading = this.loadingCtrl.create({
+		    spinner: 'hide',
+		    content: e,
+		    duration: 2000
+		  });
+
+		  loading.present();	
 	}
 
 
