@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="boyova.robota" version="0.8.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>ВОГНЕВИК</name>
+<widget id="boyova.robota" version="0.8.7" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Вогневик</name>
     <description>Тестування з Бойової роботи вогневих підрозділів наземної артилерії.</description>
     <author email="L3adagon@gmail.com" href="https://vadagon.github.io/">Vadagon</author>
     <content src="index.html" />
