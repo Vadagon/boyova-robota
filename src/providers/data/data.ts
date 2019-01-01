@@ -23,25 +23,25 @@ export class DataProvider {
   		storage.get('data').then((val) => {
   			if(val){
   				this.data = val;
-  				console.log(this.data)
+          this.db.object('/').valueChanges().subscribe(data => {
+            console.log(data)
+            this.data = data;
+            storage.set('data', data);
+          })
   			}else{
-				var loading = this.loadingCtrl.create({
-					content: 'Обовязкова перша підгрузка питань з бази данних...'
-				});
-				loading.present();
-				this.db.object('/').valueChanges().subscribe(data => {
-					this.data = data;
-					storage.set('data', data);
-					setTimeout(()=>{
-						loading.dismiss();
-					}, 2500)
-				})
+  				var loading = this.loadingCtrl.create({
+  					content: 'Обовязкова перша підгрузка питань з бази данних...'
+  				});
+  				loading.present();
+  				this.db.object('/').valueChanges().subscribe(data => {
+  					this.data = data;
+  					storage.set('data', data);
+  					setTimeout(()=>{
+  						loading.dismiss();
+  					}, 2500)
+  				})
 			}
 		});
-    this.db.object('/').valueChanges().subscribe(data => {
-      this.data = data;
-      storage.set('data', data);
-    })
 	}
 
 	getData(){

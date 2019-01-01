@@ -18,10 +18,30 @@
   	В розробці
   </div>
 	<div *ngIf="navParams.data.data">
-    <div *ngFor="let x of navParams.data.data">
-      {{x.question}}
-      <br>
-      Ви відповіли: <i>{{x.answered}}</i>
+    <div *ngFor="let x of navParams.data.data; let i = index;">
+      <div *ngIf="x.answers">
+        {{i+1}}. {{x.question}}
+        <br>
+        Вірна відповідь: <i>{{x.trueAnswer}}</i>
+        <br>
+        Ви відповіли: <i>{{x.answeredText}}</i>
+        <br>
+        Резутат: <span ion-text color="{{x.answered?'secondary':'danger'}}">{{x.answered?'Вірно':'Невірно'}}</span>.
+      </div>
+      <div *ngIf="x.answer">
+        {{i+1}}. {{x.question}}
+        <br>
+        <ion-list>
+          <ion-item *ngFor="let opt of x.options;">
+            {{opt.name}} <i>{{opt.value}}</i>
+          </ion-item>
+        </ion-list>
+        Вірна відповідь: <i>{{x.answer}}</i>
+        <br>
+        Ви відповіли: <i>{{x.answeredText}}</i>
+        <br>
+        Резутат: <span ion-text color="{{x.answered?'secondary':'danger'}}">{{x.answered?'Вірно':'Невірно'}}</span>.
+      </div>
       <hr>
     </div>
 	</div>

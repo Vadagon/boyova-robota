@@ -21,10 +21,10 @@ export class TestPage {
 
     this.timer = 60*10;
     this.timeString = '00:00'
-    setInterval(() => { 
+    setInterval(() => {
       this.timer--;
       this.timeString = Math.floor(this.timer/60) + ':'
-      var x = this.timer - Math.floor(this.timer/60)*60; 
+      var x = this.timer - Math.floor(this.timer/60)*60;
       if (x < 10){
         this.timeString += '0' + x;
       }else{
@@ -41,7 +41,8 @@ export class TestPage {
   }
 
   next(x?, id?){
-    if(this.type == 1){  
+    if(this.type == 1){
+      this.quests.level1[this.num].answeredText = x;
       if(this.quests.stored[this.quests.level1[this.num].inId].answers[0] == x){
         this.quests.level1[this.num].answered = !0;
       }else{
@@ -51,9 +52,10 @@ export class TestPage {
       if(this.quests.level1.length < this.num + 1) this.type = 2;
     }else if(this.type == 2){
       var answer = parseFloat(this.answer.replace(/[^0-9.,]/ig).replace(',', '.').trim());
+      this.quests.level2[this.num-this.quests.level1.length].answeredText = answer;
       this.answer = '';
       this.quests.level2[this.num-this.quests.level1.length].answered = (answer==this.quests.level2[this.num-this.quests.level1.length].answer);
-
+      console.log(this.quests);
       (this.quests.level1.length + this.quests.level2.length) > this.num + 1 ? this.num++ : this.data.openPage('result', {course: this.navParams.data.course, level: 3, data: this.quests})
     }
   }

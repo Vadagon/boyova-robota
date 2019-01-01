@@ -84,3 +84,19 @@ $button-md-background-color:  #0062dc;
 
 @import "roboto";
 @import "noto-sans";
+
+
+page-result .list-md{
+  margin: 0px 0 0px !important;
+  .item-md{
+    min-height: 0 !important;
+    background-color: #191919 !important;
+    font-size: 1.4rem !important;
+    .label-md {
+      margin: 0px 8px 0px 0 !important;
+    }
+  }
+  .item-block .item-inner{
+    // border-bottom: 0px solid #dedede;
+  }
+}

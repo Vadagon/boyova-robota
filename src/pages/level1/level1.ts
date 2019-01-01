@@ -20,6 +20,7 @@ export class Level1Page {
 
   next(x, id) {
     if(this.redirecting) return;
+    this.quests[this.num].answeredText = x;
     if(this.stored[this.quests[this.num].inId].answers[0] == x){
       this.quests[this.num].answers[id].color = "secondary";
       this.quests[this.num].answered = !0;
@@ -37,19 +38,21 @@ export class Level1Page {
       this.redirecting = !1;
     }, 1400);
   }
-  
+
 }
 
 export function prepQuests(e){
+  console.log(e);
   return e.map((el, id)=>{
-    el.inId = id
+    el.inId = id;
+    el.trueAnswer = el.answers[0];
     return el;
   })
 }
 export function genQuests(e){
   return shuffleArray(e).map((el, id)=>{
     el.id = id + 1;
-    
+
     el.answers = shuffleArray(el.answers).map((ans)=>{
       ans = {
         text: ans,
