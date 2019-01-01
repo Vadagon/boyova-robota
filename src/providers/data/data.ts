@@ -38,6 +38,10 @@ export class DataProvider {
 				})
 			}
 		});
+    this.db.object('/').valueChanges().subscribe(data => {
+      this.data = data;
+      storage.set('data', data);
+    })
 	}
 
 	getData(){
@@ -68,7 +72,7 @@ export class DataProvider {
 		    duration: 2000
 		  });
 
-		  loading.present();	
+		  loading.present();
 	}
 
 
