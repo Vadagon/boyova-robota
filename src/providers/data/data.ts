@@ -18,6 +18,12 @@ and Angular DI.
 export class DataProvider {
 
   	data: any = {};
+    results: any = {
+      course1: {data: {}, feed: []},
+      course2: {data: {}, feed: []},
+      course3: {data: {}, feed: []},
+      course4: {data: {}, feed: []}
+    };
   	public currentPage = new Subject();
   	constructor(public db: AngularFireDatabase, private storage: Storage, public loadingCtrl: LoadingController) {
   		storage.get('data').then((val) => {
@@ -42,6 +48,11 @@ export class DataProvider {
   				})
 			}
 		});
+    storage.get('results').then((val) => {
+      if(val) this.results = val;
+      if(!val) storage.set('results', this.results);
+      console.log(this.results)
+    });
 	}
 
 	getData(){

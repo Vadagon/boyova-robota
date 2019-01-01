@@ -55,7 +55,6 @@ export class TestPage {
       this.quests.level2[this.num-this.quests.level1.length].answeredText = answer;
       this.answer = '';
       this.quests.level2[this.num-this.quests.level1.length].answered = (answer==this.quests.level2[this.num-this.quests.level1.length].answer);
-      console.log(this.quests);
       (this.quests.level1.length + this.quests.level2.length) > this.num + 1 ? this.num++ : this.data.openPage('result', {course: this.navParams.data.course, level: 3, data: this.quests})
     }
   }

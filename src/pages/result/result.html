@@ -15,7 +15,10 @@
 
 <ion-content padding>
   <div *ngIf="!navParams.data.data">
-  	В розробці
+    <h3 *ngIf="!data.results['course'+navParams.data.course].feed.length">Недостатньо данних...</h3>
+    <div *ngFor="let x of data.results['course'+navParams.data.course].feed; let i = index;">
+      {{x.date | date}} : <b ion-text color="primary">{{x.score}}/{{x.maxScore}}</b>
+    </div>
   </div>
 	<div *ngIf="navParams.data.data">
     <div *ngFor="let x of navParams.data.data; let i = index;">
